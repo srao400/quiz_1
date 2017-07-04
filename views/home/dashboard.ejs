@@ -1,0 +1,65 @@
+<%- include('../partials/header') %>
+
+<main class="container main">
+  <div class="row">
+    <div class="col-md-4 ">
+      <div class="well profile">
+        <div class="content-1">
+          <img src="<%= faker.random.image() %>">
+          <div class="content-2">
+            <h3><%= faker.name.findName() %></h4>
+            <h5>@<%= faker.internet.userName() %></h5>
+          </div>
+        </div>
+        <div class="content-3">
+          <h5>Messages</h5>
+          <h3><%= Math.floor((Math.random() * 100) + 1); %></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 dashboard fixed-top">
+      <form action="/dashboard" method="post">
+        <div>
+          <label for="username"></label>
+          <input type="text" class="form-control" placeholder="Username" name="username" >
+        </div>
+        <div>
+          <label for="message"></label>
+          <textarea class="form-control" placeholder="message" name="message" maxlength="255"></textarea>
+        </div>
+        <br>
+        <div class="text-right submit">
+          <button class="btn btn-default" type="submit" name="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <h3 class="trend">Trending AweTweets</h3>
+      <div class="well">
+        <% for(let i = 0; i < 6; i++) { %>
+          <h5>#<%= faker.lorem.word() %></h5>
+          <% } %>
+      </div>
+    </div>
+    <% if (typeof tweets !== 'undefined') { %>
+      <div class="col-md-8 tweets-container">
+          <% for(let i = 0; i < tweets.length; i++) { %>
+            <div class="dashboard">
+            <img src="<%= faker.random.image() %>">
+            <div class="tweet">
+              <h5><%= tweets[i].name %></h5>
+              <p><%= tweets[i].body %></p>
+              <p style="text-align: right; padding-right: 0;">Posted: <%= new Date() %></p>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    <% } %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

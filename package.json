@@ -1,0 +1,22 @@
+{
+  "name": "quiz_1",
+  "version": "0.0.1",
+  "description": "Awesome Tweets",
+  "main": "app.js",
+  "author": "Srinivas Rao",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "faker": "^4.1.0",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
